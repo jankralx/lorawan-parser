@@ -1,6 +1,8 @@
-from aes_ecb import aes128_encrypt
-from aes_ecb import AES_ECB
-from aes_cmac import AES_CMAC
+
+from .aes_ecb import aes128_encrypt
+from .aes_ecb import AES_ECB
+from .aes_ecb import *
+from .aes_cmac import AES_CMAC
 
 # Note:
 #     The arguments of the following functions are ordered in big endian.
@@ -93,6 +95,14 @@ def lorawan_frmp_integrity(key, msg, devaddr, msg_dir, fcnt):
     B0[15] = len(msg)
 
     return lorawan_aes128_cmac(key, B0 + msg)
+
+def lorawan_decrypt(key_hex, msg_hex):
+    """
+    decrypt data of LoRaWAN message.
+        key, msg: in bytearray
+        return: message decrypted in bytearray
+    """
+    return aes128_decrypt(key_hex, msg_hex)
 
 def lorawan_aes128_encrypt(key, msg):
     """

@@ -2,11 +2,11 @@ import sys
 import re
 import argparse
 import binascii
-from lorawan_cipher import lorawan_aes128_cmac
-from lorawan_cipher import lorawan_aes128_encrypt
-from lorawan_cipher import lorawan_frmp_encryption
-from lorawan_cipher import lorawan_frmp_integrity
-from lorawan_a2b_hex import a2b_hex
+from .lorawan_cipher import lorawan_aes128_cmac
+from .lorawan_cipher import lorawan_aes128_encrypt
+from .lorawan_cipher import lorawan_frmp_encryption
+from .lorawan_cipher import lorawan_frmp_integrity
+from .lorawan_a2b_hex import a2b_hex
 import textwrap
 
 # NOTE:
